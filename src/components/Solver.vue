@@ -73,7 +73,7 @@ function previousPage() {
 
 // Get words from words.txt
 onMounted(async () => {
-  const response = await fetch('/words.txt')
+  const response = await fetch(`${import.meta.env.BASE_URL}words.txt`)
   words.value = (await response.text()).split(/\r?\n/)
 })
 </script>

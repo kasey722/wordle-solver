@@ -61,7 +61,7 @@ function cycleTileColor(row, col) {
     setTileColor(row, col, YELLOW)
   } else if (tileColor === YELLOW) {
     // Prevent conflicting green slots
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 5; i++) {
       if (getTileColor(i, col) === GREEN && getTileLetter(i, col) !== tileLetter) {
         setTileColor(row, col, GRAY)
         break
@@ -96,7 +96,7 @@ function getKeyColor(key) {
 
 function addLetter(letter) {
   const pos = getPos()
-  if (pos[0] === 6 && pos[1] === 0) { return }
+  if (pos[0] === 5 && pos[1] === 0) { return }
 
   setTileLetter(pos[0], pos[1], letter)
   setTileColor(pos[0], pos[1], GRAY)
@@ -136,7 +136,7 @@ function updateColorsAndLetters() {
   }
 
   // Re-apply colors only for non-empty tiles, with priority
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 5; i++) {
     for (let j = 0; j < 5; j++) {
       const letter = getTileLetter(i, j)
       const color = getTileColor(i, j)
